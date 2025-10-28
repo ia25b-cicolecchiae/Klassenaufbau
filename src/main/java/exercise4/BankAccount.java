@@ -17,14 +17,12 @@ public class BankAccount {
     }
 
     public void withdraw(double amount) {
-        boolean schalter = true;
-        while (schalter) {
-            if (balance >= amount) {
-                balance -= amount;
-            } else {
-                System.out.println("Du hast nicht genug Geld zum auszahlen");
-                schalter = false;
-            }
+        if (amount > balance) {
+            System.out.println("Du hast nicht genug Geld zum auszahlen");
+        } else if (amount > limit) {
+            System.out.println("Das Limit darf nicht überschritten werden");
+        }else{
+            balance -= amount;
         }
     }
 
